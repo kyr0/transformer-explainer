@@ -13,10 +13,12 @@ export const isLoaded = writable(false);
 
 export const inputTextExample = [
 	'Data visualization empowers users to',
+	/*
 	'Artificial Intelligence is transforming the',
 	'As the spaceship was approaching the',
 	'On the deserted planet they discovered a',
 	'IEEE VIS conference highlights the'
+	*/
 ];
 
 export const selectedExampleIdx = writable<number>(0);
