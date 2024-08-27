@@ -38,7 +38,7 @@
 		</p>	
 		<p>
 			Beim Verfassen dieses Artikels war es mir ferner ein großes Anliegen, den Text auch stark zu erweitern um ihn in seiner Verständlichkeit zu verbessern.
-			Ich bin der Meinung, dass alle Konzepte hinter GPTs auch für Laien, aber vor allem für jeden Menschen frei zugänglich sein sollten. 
+			Ich bin der Meinung, dass ein Verständnis der Konzepte hinter GPTs für alle Menschen, unabhängig von Herkunft, Alter und Bildungsgrad erreichbar und frei zugänglich sein sollte.
 			Diese Technologie hat bereits ein viel zu großes Potential gezeigt und brirgt viel zu große Risiken, als dass man ihr Verständnis 
 			nur einer kleinen Gruppe von Experten überlassen sollte. In einer perfekten Welt würde die Funktionsweise von GPTs vielleicht sogar in der Schule gelehrt werden.
 			Die ein oder andere Schüler*in könnte sich so dazu entscheiden, das Denken und ihre Kreativität vielleicht doch nicht der Statistik und dem Zufall zu überlassen.
