@@ -105,7 +105,7 @@
 			Hierfür wird ein Dataset, also eine große Menge an Texten verschiedener Sprachen aus unterschiedlichen Datenquellen zusammengestellt.
 			Im Rahmen von <a href="https://huggingface.co/openai-community/gpt2" title="Hugging Face" target="_blank">GPT-2</a> handelte es sich um 40 GB Text aus 8 Millionen Dokumenten von 45 Million Webseiten welche auf Reddit.com positiv bewertet wurden.
 			Durch Web-Crawlings wurden die relevanten Textinhalte der Webseiten abgerufen und anschließend mittels klassischen, statistischen NLP- und ML-Verfahren,
-			d.g. maschinellen Lernverfahren zur Verarbeitung natürlicher Sprache, aufbereitet. 
+			 also maschinellen Lernverfahren zur Verarbeitung natürlicher Sprache, aufbereitet. 
 		</p>
 
 		<p>
