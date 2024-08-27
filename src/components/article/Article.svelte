@@ -64,13 +64,14 @@
 		</p>
 
 		<p>
-			Da sich alle führenden großen Sprachmodelle aktuell der Transformer-Architektur bedienen, wird oft schlicht von "Transformern" gesprochen. Die erste Veröffentlichung der Transformer-Architektur erfolgte 2017 mit dem Paper 
+			Viele der führenden großen Sprachmodelle bedienen sich aktuell (Stand August 2024) der Transformer-Architektur. Oft wird daher ganz allgemein von "Transformern" gesprochen, wenn von KI-Modellen die Rede ist, die auf dieser Architektur beruhen. 
+			Die erste Veröffentlichung der Transformer-Architektur erfolgte 2017 mit dem Paper 
 			<a
 				href="https://dl.acm.org/doi/10.5555/3295222.3295349"
 				title="ACM Digital Library"
 				target="_blank">"Attention is All You Need"</a
 			>. Seitdem stellt diese Architektur die erste Wahl für Deep Learning-Modelle ("Mehrschichtige Lernmodelle") wie beispielsweise OpenAIs <strong>GPT</strong> und <strong>ChatGPT</strong>, Metas <strong>Llama</strong>, Anthropics <strong>Claude</strong> und Googles
-			<strong>Gemini</strong>-Modelle dar. 
+			<strong>Gemini</strong>-Modelle dar. Auch moderne Vektor-Einbettungsmodelle, von denen wir später noch mehr lesen werden, bedienen sich der Transformer-Architektur.
 		</p>
 
 		<p>
