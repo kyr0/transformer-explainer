@@ -139,8 +139,8 @@
 				<strong>Tiefes Lernen (Training)</strong>
 				Ebenso wird beim Training eines Sprachmodells ein künstliches neuronales Netz in Schichten trainiert, welches letztlich lediglich 
 				die bedingten Eintrittswahrscheinlichkeiten modelliert, welcher Token wahrscheinlich als nächstes auf eine Sequenz von Eingabetokens folgen könnte.
-				Dieser Trainingsprozess setzt sich aus mehreren Schritten zusammen, wie z.B. dem Vortraining (Pre-training), der Feinabstimmung (Fine-Tuning), 
-				dem verstärktem Lernen durch menschliches Feedback (RLHF) und weiteren Methoden des maschinellen Lernens.
+				Dieser Trainingsprozess setzt sich aus mehreren Schritten zusammen, wie beispielsweise dem Vortraining (Pre-training), der Feinabstimmung (Fine-Tuning), 
+				dem verstärktem Lernen durch menschliches Feedback (RLHF) sowie weiteren Methoden des maschinellen Lernens.
 			</li>
 		</ol>
 
