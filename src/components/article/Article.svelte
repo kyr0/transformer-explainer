@@ -155,9 +155,8 @@
 		</p>
 
 		<p>
-			Sie können übrigens jeden der Schritte einzeln im Diagramm nachvollziehen, indem Sie auf die jeweilige Überschrift klicken
-			bzw. mit der Maus über den grafischen Elementen hovern. Durch einen klick auf den "Generieren"-Button wird Prozess für einen weiteren 
-			Autoregerationsschritt fortgesetzt.
+			Sie können übrigens jeden der Schritte einzeln im Diagramm nachvollziehen. Durch einen Klick auf den "Generieren"-Button wird der Prozess für einen weiteren 
+			Autoregerationsschritt, also die Inferenz zur Bestimmung des nächsten Wortes im Satz, ausgeführt.
 		</p>
 
 		<ol>
