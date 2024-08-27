@@ -58,8 +58,9 @@
 		<h1>Was ist ein Transformer?</h1>
 		
 		<p>
-			Wenn die Rede von "Transformern" ist und insbesondere, wenn über "GPTs" gesprochen wird, wird spricht man von Transformer-basierten, große Sprachmodellen. Diese fallen in die Kategorie des Maschinelles Lernens (Machine Learning; ML) und insbesondere unter den Begriff "Neuronalen Netze". 
-			Der Begriff "Transformer-Architektur" bezieht sich jedoch nur auf die Art und Weise des Aufbaus, also der spezifischen Konstruktion des neuronalen Netzes, also der mathematischen Grundlagen der Netz-Architektur beim Lernprozess (Training) und Einsatz (Inference).
+			Wenn die Rede von "Transformern" ist und insbesondere, wenn über "GPTs" gesprochen wird, wird spricht man von Transformer-basierten, große Sprachmodellen. Diese fallen in die Kategorie des Maschinelles Lernens (Machine Learning; ML) und insbesondere unter den Begriff "Neuronale Netze". 
+			Der Begriff "Transformer-Architektur", welcher in diesem Zusammenhang oft genannt wird, bezieht sich dabei nur auf die Art und Weise des Aufbaus, also der spezifischen Konstruktion eines bestimmten neuronalen Netzes. 
+			Dabei geht es um die mathematischen Grundlagen der Netz-Architektur die den Lernprozess (Training) und die Anwendung (Inference) des Modells bestimmen.
 		</p>
 
 		<p>
