@@ -147,7 +147,7 @@
 		<h2>Anwendung eines GPT</h2>
 
 		<p>
-			Wird das Sprachmodell schließlich angewendet, werden nacheinander die folgenden Aufgaben abgearbeitet. Dieser Vorgang wird als Inferenz bezeichnet.
+			Wird das Sprachmodell schließlich angewendet, werden nacheinander einige Arbeitsschritte in einem Verfahren abgearbeitet, das als "Inferenz" (Inference) bekannt ist.
 			Es ist wichtig zu verstehen, dass die Bestimmung eines jeden Tokens in der Ausgabe des Modells auf den vorherigen Tokens basiert.
 			Dadurch entsteht eine Art "Kettenreaktion" von Token zu Token, die letztlich den gesamten Text generiert. In Fachkreisen wird dieses Verhalten eines Systems als "Autoregression" bezeichnet.
 			Der Prozess wird so lange fortgesetzt, bis eine vorab festgelegte Tokenanzahl erreicht ist (Maximum Output Tokens) oder ein spezielles Ende-Token erreicht wird.
