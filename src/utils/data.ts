@@ -9,7 +9,7 @@ import {
 	isFetchingModel
 } from '~/store';
 import { get } from 'svelte/store';
-import { reshapeArray } from './array';
+import { reshapeArray, reshapeEmbedding } from './array';
 import { showFlowAnimation } from './animation';
 
 ort.env.wasm.wasmPaths = 'https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/';
@@ -29,17 +29,21 @@ export const runModel = async ({
 }) => {
 	isModelRunning.set(true);
 
+	//console.log('tokenizer', tokenizer)
+
 	const { token_ids, input_tokens } = await getTokenization(tokenizer, input === '' ? ' ' : input);
 
 	tokens.set(input_tokens);
 
-	const { logits, outputs } = await getData(token_ids);
+	//console.log("token_ids", token_ids)
+
+	const { logits, outputs, finalInputEmbeddings, finalInputEmbeddingsAfterDropout, posEmbeddings, tokenEmbeddings } = await getData(token_ids);
 
 	const prediction = getPrediction({ tokenizer, logits, topK, temperature });
 
 	const sampledToken = sampleToken(prediction, sampleK);
 
-	modelData.set({ logits, outputs, prediction, sampled: sampledToken });
+	modelData.set({ tokenIds: token_ids, logits, outputs, prediction, sampled: sampledToken, finalInputEmbeddings, posEmbeddings, tokenEmbeddings, finalInputEmbeddingsAfterDropout });
 
 	// To ensure the animation starts after all elements have been rendered
 	setTimeout(async () => {
@@ -73,6 +77,7 @@ export const adjustTemperature = async ({
 
 export const getTokenization = async (tokenizer: PreTrainedTokenizer, input: string) => {
 	const token_ids = tokenizer.encode(input);
+	//console.log("tokenizer", tokenizer)
 	const input_tokens = token_ids.map((id) => tokenizer.decode([id])).flat();
 
 	return {
@@ -85,6 +90,8 @@ export const getData = async (token_ids: number[]) => {
 	try {
 		// Convert token_ids to tensor
 		const inputTensor = new ort.Tensor('int64', token_ids, [1, token_ids.length]);
+
+		//console.log("inputTensor", inputTensor)
 
 		// Load the model
 		// const session = await ort.InferenceSession.create(`${base}/model-quant.onnx`, {
@@ -100,9 +107,34 @@ export const getData = async (token_ids: number[]) => {
 
 		// Prepare the feeds (inputs)
 		const feeds = { input: inputTensor };
+		//const outputNames = ['linear_output', 'embedding'];
 
 		// Run inference
 		const results = await session.run(feeds);
+
+		const tokenEmbeddings = reshapeEmbedding(
+			results.tok_emb.cpuData,
+			results.tok_emb.dims[1], // second element denotes the count
+			results.tok_emb.dims[2] // third element denotes the dimensionality
+		)
+
+		const posEmbeddings = reshapeEmbedding(
+			results.pos_emb.cpuData,
+			results.pos_emb.dims[0], // first element denotes the count
+			results.pos_emb.dims[1] // seconds element denotes the dimensionality
+		)
+
+		const finalInputEmbeddings =  reshapeEmbedding(
+			results.input_emb.cpuData,
+			results.input_emb.dims[1], // second element denotes the count
+			results.input_emb.dims[2] // third element denotes the dimensionality
+		)
+
+		const finalInputEmbeddingsAfterDropout =  reshapeEmbedding(
+			results.input_emb_dropout.cpuData,
+			results.input_emb_dropout.dims[1], // second element denotes the count
+			results.input_emb_dropout.dims[2] // third element denotes the dimensionality
+		)
 
 		// Extract the logits
 		const logits = results['linear_output'].data;
@@ -123,7 +155,11 @@ export const getData = async (token_ids: number[]) => {
 
 		return {
 			logits,
-			outputs
+			outputs,
+			posEmbeddings,
+			tokenEmbeddings,
+			finalInputEmbeddings,
+			finalInputEmbeddingsAfterDropout
 		};
 	} catch (error) {
 		console.error('Error during inference:', error.message);

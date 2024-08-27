@@ -37,10 +37,12 @@
 	// run model
 	onMount(async () => {
 		// Fetch model onnx
-		const chunkNum = 63; //TODO: move to model meta
+		const chunkNum = 17;//63; //TODO: move to model meta
 		const chunkUrls = Array(chunkNum)
 			.fill(0)
-			.map((d, i) => `${base}/model/gpt2.onnx.part${i}`);
+			.map((d, i) => `${base}/model/gpt2-quant.onnx.part${i}`);
+
+			console.log("chunkUrls", chunkUrls);
 
 		// Fetch from cache
 		const mergedArray = await fetchAndMergeChunks(chunkUrls);
@@ -55,6 +57,8 @@
 		const session = await ort.InferenceSession.create(url, {
 			// logSeverityLevel: 0
 		});
+
+		console.log("session", session);
 
 		modelSession.set(session);
 

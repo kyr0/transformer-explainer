@@ -13,12 +13,12 @@
 
 <Popover
 	class={classNames('popover dropout-popover text-sm', className)}
-	title="Drop out"
+	title="Dropout"
 	{offset}
 	{triggeredBy}
 	{trigger}
 	{placement}
 	arrow={false}
 >
-	<div class="dropout-content">Disables randomly selected neurons.</div></Popover
+	<div class="dropout-content">Zufällig gewählte Neuronen-Verbindungen werden deaktiviert. Minimiert die Wahrscheinlichkeit für Überanpassung und erhöht die Chance auf Generalisierung.</div></Popover
 >

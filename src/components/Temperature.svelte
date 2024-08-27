@@ -22,9 +22,9 @@
 	<div class="slider-container flex w-full flex-col items-end">
 		<div class="flex w-full shrink-0 items-center justify-between">
 			<div class="temperature-text flex items-center gap-[2px]">
-				<div>Temperature</div>
+				<div>Temperatur</div>
 				<HelpPopover id="temperature-help" placement="right">
-					{`Changes the output \nprobability distribution \nand randomness \nof next token.`}
+					{`Verändert die Wahrscheinlichkeits-\nverteilung der topK Ergebis-Tokens\nund bestimmt somit den\nZufall, der das nächste Wort betrifft.`}
 				</HelpPopover>
 			</div>
 			<div class="temperature-value">

@@ -14,7 +14,7 @@
 
 <Popover
 	class={classNames('popover residual-popover text-sm', className)}
-	title="Residual Connection"
+	title="Residualverbindungen"
 	{offset}
 	{triggeredBy}
 	{trigger}
@@ -25,7 +25,10 @@
 	{reference}
 >
 	<div class="residual-content">
-		Adds skip-connections to allow for better gradient flow.
+		Fügt Direktverbindungen zwischen Schichten hinzu (Skip Connections), <br />um einen besseren Gradientenfluss zu ermöglichen.<br />
+		Dies reduziert das Problem, das Gradienten in tiefen neuronalen Netzen<br />immer kleiner werden, desto mehr sie sich beim <br />
+		Training (Backpropagation) der Eingabeschicht nähern.
+	
 	</div></Popover
 >
 

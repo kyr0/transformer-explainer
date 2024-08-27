@@ -7,7 +7,7 @@
 	import DropdownItem from 'flowbite-svelte/DropdownItem.svelte';
 	import Temperature from './Temperature.svelte';
 	import TokenGenerator from './TokenGenerator.svelte';
-	import { ex0, ex1, ex2, ex3, ex4 } from '~/constants/examples';
+	import { ex0 /*, ex1, ex2, ex3, ex4*/ } from '~/constants/examples';
 
 	import { ArrowRightOutline, ChevronDownOutline } from 'flowbite-svelte-icons';
 	import {
@@ -71,7 +71,8 @@
 
 	// Example select box
 	let dropdownOpen = false;
-	const initialDataMap = [ex0, ex1, ex2, ex3, ex4];
+	const initialDataMap = [ex0, /*ex1, ex2, ex3, ex4*/];
+	console.log("initialDataMap", initialDataMap)
 	const onSelectExample = (d, i) => {
 		dropdownOpen = false;
 
@@ -89,6 +90,16 @@
 
 		if ($isFetchingModel || !$modelSession) {
 			const initialData = initialDataMap[i];
+
+			console.log("initialData", initialData)
+			// TODO
+			/*
+			if (initialData.inputTokenEmbeddings) {
+				// for turn in TypedArray
+			}
+				*/
+
+
 			modelData.set(initialData);
 			predictedToken.set(initialData.sampled);
 			tokens.set(initialData.tokens);
@@ -132,7 +143,7 @@
 				class:selectDisabled
 				class="select-button inline-flex shrink-0 items-center justify-center border border-s-0 border-gray-200 bg-white px-3 py-2 text-center text-xs font-medium text-gray-900 first:rounded-s-lg first:border-s last:rounded-e-lg"
 			>
-				Examples<ChevronDownOutline class="pointer-events-none h-4 w-4 text-gray-500" />
+				Beispiele<ChevronDownOutline class="pointer-events-none h-4 w-4 text-gray-500" />
 			</button>
 			<Dropdown placement="bottom-start" bind:open={dropdownOpen} class="example-dropdown">
 				{#each inputTextExample as text, index}
@@ -176,10 +187,10 @@
 				{/if}
 				{#if $isLoaded && $isFetchingModel}
 					<span class="helper-text"
-						>Try the examples while GPT-2 model is being downloaded (600MB)</span
+						>Verwenden Sie die Beispiele, während das Modell lädt (~168 MiB)</span
 					>
 				{:else if exceedLimit}
-					<span class="helper-text">You can enter up to {wordLimit} words.</span>
+					<span class="helper-text">Sie können bis zu {wordLimit} Wörter eingeben.</span>
 				{/if}
 			</div>
 		</ButtonGroup>
@@ -192,7 +203,7 @@
 			type="submit"
 			on:click={handleSubmit}
 		>
-			Generate
+			Generieren
 		</button>
 	</form>
 	<Temperature disabled={isLoading} />

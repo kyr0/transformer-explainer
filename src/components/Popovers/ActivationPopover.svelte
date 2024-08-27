@@ -13,7 +13,7 @@
 
 <Popover
 	class={classNames('popover activation-popover text-sm', className)}
-	title="GeLu Activation"
+	title="GELU-Aktivierungsfunktion"
 	{offset}
 	{triggeredBy}
 	{trigger}
@@ -22,7 +22,7 @@
 	transition={fade}
 	params={{ duration: 0 }}
 >
-	<div class="activation-content">Applies activation function to neuron outputs.</div></Popover
+	<div class="activation-content">Entscheidet, ob ein Neuron-Input durchgelassen wird. Dies ist abhängig davon, wie wahrscheinlich er im Kontext der Normalverteilung ist.</div></Popover
 >
 
 <style>

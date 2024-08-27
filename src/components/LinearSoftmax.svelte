@@ -150,7 +150,7 @@
 		on:mouseenter={handleMouseEnter}
 		on:mouseleave={handleMouseLeave}
 	>
-		<div>Probabilities</div>
+		<div>Wahrscheinlichkeiten 🔍</div>
 	</div>
 	<div
 		class="content resize-watch relative"
@@ -183,7 +183,7 @@
 			{#if isSoftmaxExpanded}
 				<div class="softmax-subtitle softmax-detail flex text-center text-xs opacity-0">
 					<div class="title-box token-string !justify-end">
-						<div class="title-text">Tokens</div>
+						<div class="title-text">Token</div>
 					</div>
 					<div class="title-box logits">
 						<div class="title-text">Logits</div>
@@ -193,7 +193,7 @@
 						>
 					</div>
 					<div class="title-box exponents">
-						<div class="title-text">Exponents</div>
+						<div class="title-text">Exponenten</div>
 						<Tooltip class="popover tooltip"
 							><Katex math={'e^{logit_i / temperature}'}></Katex></Tooltip
 						>

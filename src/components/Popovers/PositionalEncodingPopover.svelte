@@ -105,7 +105,7 @@
 				</div>
 			</div>
 			<div class="embs">
-				<div class="subtitle">Embedding</div>
+				<div class="subtitle">Einbettung</div>
 				<div class="subcontent flex flex-col">
 					{#each $tokens as token, token_idx}
 						<div

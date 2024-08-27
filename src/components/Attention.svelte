@@ -47,7 +47,7 @@
 
 <div class={classNames('attention', className, { expanded: isAttentionExpanded })}>
 	<div class="title" on:mouseenter={handleMouseEnter} on:mouseleave={handleMouseLeave} role="group">
-		<div>Multi-head Self Attention</div>
+		<div>Mehrköpfige Selbstaufmerksamkeit</div>
 	</div>
 	<div class="content relative">
 		<div class="bounding transformer-bounding" class:active={$isBoundingBoxActive}>
@@ -95,7 +95,7 @@
 						</div>
 					</div>
 				</div>
-				<Tooltip placement="right" class="popover">vector({$modelMeta.dimension * 3})</Tooltip>
+				<Tooltip placement="right" class="popover">Vektor({$modelMeta.dimension * 3})</Tooltip>
 			{/each}
 		</div>
 		<div class="heads">
@@ -106,7 +106,7 @@
 				>
 					<div class="qkv flex h-full flex-col justify-center gap-[5rem] pl-[6rem]">
 						<div class="column query">
-							<div class="title">Query</div>
+							<div class="title">Anfrage (Q)</div>
 							{#each $tokens as token, index}
 								<div
 									class="head1 cell x1-12 query text-xs"
@@ -117,13 +117,13 @@
 									<div class={`vector x1-12  ${queryHeadVectorColor}`}></div>
 								</div>
 								<Tooltip placement="right" class="popover"
-									>Query, Head 1, vector({$modelMeta.dimension /
+									>Anfrage, Kopf 1, Vektor({$modelMeta.dimension /
 										$modelMeta.attention_head_num})</Tooltip
 								>
 							{/each}
 						</div>
 						<div class="column key">
-							<div class="title">Key</div>
+							<div class="title">Schlüssel (K)</div>
 
 							{#each $tokens as token, index}
 								<div
@@ -134,20 +134,20 @@
 									<div class={`vector x1-12 ${keyHeadVectorColor}`}></div>
 								</div>
 								<Tooltip placement="right" class="popover"
-									>Key, Head 1, vector({$modelMeta.dimension /
+									>Schlüssel, Kopf 1, Vektor({$modelMeta.dimension /
 										$modelMeta.attention_head_num})</Tooltip
 								>
 							{/each}
 						</div>
 						<div class="column value">
-							<div class="title">Value</div>
+							<div class="title">Wert (V)</div>
 							{#each $tokens as token, index}
 								<div class="head1 cell x1-12 text-xs" class:last={index === $tokens.length - 1}>
 									<span class="label float">{token}</span>
 									<div class={`vector x1-12 ${valHeadVectorColor}`}></div>
 								</div>
 								<Tooltip placement="right" class="popover"
-									>Value, Head 1, vector({$modelMeta.dimension /
+									>Wert, Kopf 1, Vektor({$modelMeta.dimension /
 										$modelMeta.attention_head_num})</Tooltip
 								>
 							{/each}
@@ -158,20 +158,20 @@
 					</div>
 					<div class="head-out mx-[2rem]">
 						<div class="column out">
-							<div class="title">Out</div>
+							<div class="title">Ausgabe</div>
 							{#each $tokens as token, index}
 								<div class="head1 cell x1-12" class:last={index === $tokens.length - 1}>
 									<div class={`vector x1-12 ${outputVectorColor}`}></div>
 								</div>
 								<Tooltip placement="right" class="popover"
-									>Attention Out, Head 1, vector({$modelMeta.dimension /
+									>Aufmerksamkeits-Ausgabe, Kopf 1, Vektor({$modelMeta.dimension /
 										$modelMeta.attention_head_num})</Tooltip
 								>
 							{/each}
 						</div>
 					</div>
 					<div class="head-title absolute bottom-2 right-3 text-right text-gray-400">
-						Head 1 of {$modelMeta.attention_head_num}
+						Kopf 1 von {$modelMeta.attention_head_num}
 					</div>
 				</div>
 			</HeadStack>

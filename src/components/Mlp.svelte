@@ -56,7 +56,7 @@
 							<div class="sub-vector head-rest grow"></div>
 						</div>
 					</div>
-					<Tooltip placement="right" class="popover">vector({$modelMeta.dimension})</Tooltip>
+					<Tooltip placement="right" class="popover">Vektor({$modelMeta.dimension})</Tooltip>
 				{/each}
 			</div>
 			<OperationGroup type="dropout" id={'mlp-first-dropout'} />
@@ -76,7 +76,7 @@
 								<VectorCanvas colorScale="indigo" />
 							</div>
 						</div>
-						<Tooltip placement="right" class="popover">vector({$modelMeta.dimension * 4})</Tooltip>
+						<Tooltip placement="right" class="popover">Vektor({$modelMeta.dimension * 4})</Tooltip>
 					{/each}
 				</div>
 				<OperationGroup type="activation" id={'mlp-activation'} className="x4" />
@@ -98,7 +98,7 @@
 								<VectorCanvas colorScale="blue" />
 							</div>
 						</div>
-						<Tooltip placement="right" class="popover">vector({$modelMeta.dimension})</Tooltip>
+						<Tooltip placement="right" class="popover">Vektor({$modelMeta.dimension})</Tooltip>
 					{/each}
 				</div>
 			</div>

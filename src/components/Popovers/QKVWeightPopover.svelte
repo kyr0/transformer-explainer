@@ -221,7 +221,7 @@
 	<div
 		class="weight-popover-title rounded-t-md border-b border-gray-200 bg-gray-100 px-3 py-2 dark:border-gray-600 dark:bg-gray-700"
 	>
-		<h3 class="font-semibold text-gray-900">Weight Multiplication</h3>
+		<h3 class="font-semibold text-gray-900">(Matrix-Multiplikation der Gewichte) + Verzerrungen</h3>
 		{#if isAnimationActive}
 			<button
 				class="play-control forward"
@@ -294,11 +294,11 @@
 					rowGap={tokenGap}
 					colorScale={embeddingColorScale}
 				/>
-				<div class="size">matrix({tokenLen}, {$modelMeta.dimension})</div>
+				<div class="size">Matrix({tokenLen}, {$modelMeta.dimension})</div>
 			</div>
 			<div class="operator"><div class="symbol">&times;</div></div>
 			<div class="matrix flex flex-col items-center">
-				<div class="title">Q·K·V Weights</div>
+				<div class="title">Q·K·V Gewichte</div>
 				<!-- (768,2034) -->
 				<div class="flex gap-0">
 					<Matrix
@@ -313,11 +313,11 @@
 					/>
 				</div>
 
-				<div class="size">matrix({$modelMeta.dimension}, {$modelMeta.dimension * 3})</div>
+				<div class="size">Matrix({$modelMeta.dimension}, {$modelMeta.dimension * 3})</div>
 			</div>
 			<div class="operator"><div class="symbol">+</div></div>
 			<div class="matrix flex flex-col items-center">
-				<div class="title">bias</div>
+				<div class="title">Verzerrung (Bias)</div>
 				<!-- (768) -->
 				<Matrix
 					className="qkv-bias"
@@ -329,7 +329,7 @@
 					rowGap={0}
 					colorScale={embeddingColorScale}
 				/>
-				<div class="size">vector({$modelMeta.dimension * 3})</div>
+				<div class="size">Vektor({$modelMeta.dimension * 3})</div>
 			</div>
 			<div class="operator"><div class="symbol">=</div></div>
 			<div class="matrix flex flex-col items-center">
@@ -353,7 +353,7 @@
 						colorScale={qkvColorScale}
 					/>
 				</div>
-				<div class="size">matrix({tokenLen}, {$modelMeta.dimension * 3})</div>
+				<div class="size">Matrix({tokenLen}, {$modelMeta.dimension * 3})</div>
 			</div>
 		</div>
 		<div class="formula">

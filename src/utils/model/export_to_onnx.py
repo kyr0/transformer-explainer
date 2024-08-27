@@ -27,11 +27,11 @@ class wrapper(torch.nn.Module):
         outputs = self.model(input)
         # extract values from dictionary and return them as separate outputs
         return (
-            # outputs["embedding"]["tok_emb"],
-            # outputs["embedding"]["transformer.wpe.weight"],
-            # outputs["embedding"]["pos_emb"],
-            # outputs["embedding"]["input_emb"],
-            # outputs["embedding"]["input_emb_dropout"],
+            outputs["embedding"]["tok_emb"],
+            outputs["embedding"]["transformer.wpe.weight"],
+            outputs["embedding"]["pos_emb"],
+            outputs["embedding"]["input_emb"],
+            outputs["embedding"]["input_emb_dropout"],
             # outputs["block"]["block_0"]["ln_1"]["input_mean"],
             # outputs["block"]["block_0"]["ln_1"]["input_var"],
             # outputs["block"]["block_0"]["ln_1"]["input_normalized"],
@@ -127,16 +127,17 @@ torch.onnx.export(
     #     "linear_output"
     # ],
         output_names=[
+"tok_emb", "transformer_wpe_weight", "pos_emb", "input_emb", "input_emb_dropout",
 "block_0_attn_head_0_attn", "block_0_attn_head_0_attn_scaled", "block_0_attn_head_0_attn_masked", "block_0_attn_head_0_attn_softmax", "block_0_attn_head_0_attn_dropout",
         "linear_output"
     ],
     dynamic_axes={
         'input': {0: '0', 1: '1'},
-        # 'tok_emb': {0: '0', 1: '1'},
-        # 'transformer_wpe_weight': {0: '0'},
-        # 'pos_emb': {0: '0'},
-        # 'input_emb': {0: '0', 1: '1'},
-        # 'input_emb_dropout': {0: '0', 1: '1'},
+        'tok_emb': {0: '0', 1: '1'},
+        'transformer_wpe_weight': {0: '0'},
+        'pos_emb': {0: '0'},
+        'input_emb': {0: '0', 1: '1'},
+        'input_emb_dropout': {0: '0', 1: '1'},
         # 'block_0_ln_1_input_mean': {0: '0', 1: '1'},
         # 'block_0_ln_1_input_var': {0: '0', 1: '1'},
         # 'block_0_ln_1_input_normalized': {0: '0', 1: '1', 2: '2'},

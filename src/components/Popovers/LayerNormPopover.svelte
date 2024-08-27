@@ -13,7 +13,7 @@
 
 <Popover
 	class={classNames('popover ln-popover text-sm', className)}
-	title="Layer Normalization"
+	title="Normalisierung der Eingabevektoren pro Schicht"
 	{offset}
 	{triggeredBy}
 	{trigger}
@@ -23,6 +23,10 @@
 	params={{ duration: 0 }}
 >
 	<div class="ln-content w-[10rem]">
-		Standardizes layer inputs to maintain consistent mean and variance.
+		Standardisiert die Eingabevektoren<br />
+		jeder Schicht auf eine Normalverteilung.<br />
+		Dabei werden die Mittelwerte und <br />
+		Varianzen aller <br />Vektoren <br />
+		vereinheitlicht.
 	</div></Popover
 >

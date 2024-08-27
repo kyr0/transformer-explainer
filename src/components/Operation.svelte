@@ -70,9 +70,10 @@
 		<div class="cursor"></div>
 		<svg class="main">
 			{#if head}<path {id} class="head" d="M0,0 Q0,-16 30,-16"></path>
-				<text x="30" y="-26" dy="4" dx="4">Residual</text>{/if}
+				<text x="30" y="-26" dy="4" dx="4">Residualverbindungen <a href="https://en.wikipedia.org/wiki/Residual_neural_network" target="_blank">🔗</a></text>{/if}
 			<path d={`M0,0 L0,${$vectorHeight}`}></path>
 		</svg>
+		
 	</div>
 {:else if type === 'residual-end'}
 	<div class={classNames(`residual residual-end cell`, className)} class:active>

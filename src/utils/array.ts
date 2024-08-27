@@ -35,3 +35,17 @@ export const maskArray = (data) => {
 		return newArray;
 	});
 };
+
+export const reshapeEmbedding = (flatBuffer: Float32Array, elements: number, dimensionality: number): Array<Float32Array> => {
+	const tokenEmbeddingsBuffer: Float32Array = new Float32Array(flatBuffer);
+	const tokenEmbeddings: Array<Float32Array> = []
+	// tokenEmbeddingsBuffer is a flat buffer, let's slice the big bread
+	let prevIndex = 0;
+	for (let i=0; i< ((elements+1) * dimensionality); i += dimensionality) {
+		if (i !== 0) {
+			tokenEmbeddings.push(tokenEmbeddingsBuffer.slice(prevIndex, i))
+			prevIndex = i;
+		}
+	}
+	return tokenEmbeddings;
+}

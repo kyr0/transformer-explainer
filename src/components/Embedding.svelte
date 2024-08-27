@@ -10,6 +10,7 @@
 	import tailwindConfig from '../../tailwind.config';
 	import resolveConfig from 'tailwindcss/resolveConfig';
 	import { Tooltip } from 'flowbite-svelte';
+	import { modelData } from '~/store';
 
 	const { theme } = resolveConfig(tailwindConfig);
 
@@ -68,6 +69,12 @@
 		isEmbeddingExpanded = true;
 		await tick();
 
+
+		/*
+	console.log("tokenEmbeddings", tokenEmbeddings)
+	console.log("posEmbeddings", posEmbeddings)
+	console.log("finalInputEmbeddings", finalInputEmbeddings)
+*/
 		Flip.from(containerState, {
 			duration: 0.5,
 			ease: 'power2.inOut'
@@ -101,6 +108,13 @@
 	}
 
 	const embeddingVectorColor = 'bg-gray-300';
+
+	$: tokenIds = $modelData?.tokenIds || [];
+	$: tokenEmbeddings = $modelData?.tokenEmbeddings || [];
+	$: posEmbeddings = $modelData?.posEmbeddings || [];
+	$: finalInputEmbeddings = $modelData?.finalInputEmbeddings || [];
+
+	
 </script>
 
 <div
@@ -118,7 +132,7 @@
 		on:mouseenter={handleMouseEnter}
 		on:mouseleave={handleMouseLeave}
 	>
-		<div>Embedding</div>
+		<div>Einbettung 🔍</div>
 	</div>
 	<div class="content relative">
 		<div class="token-column resizable resize-watch flex">
@@ -136,17 +150,16 @@
 				></div>
 			</div>
 			{#if isEmbeddingExpanded}
-				<Tooltip triggeredBy=".embedding .vector" placement="right" class="popover"
-					>vector({$modelMeta.dimension})</Tooltip
-				>
+				
 				<!-- token id and embedding -->
 				<div class="column token-embedding embedding-detail">
 					<div class="subtitle flex items-center gap-1">
-						<span>Token<br />Embedding</span><HelpPopover id="token-embedding"
-							>{`Converts tokens into \nsemantically meaningful \nnumerical representations.`}</HelpPopover
+						<span>Token-<br />Einbettung</span><HelpPopover id="token-id"
+							>{`Die Token-IDs werden vom Tokenizer erzeugt.\nDer passende Einbettungs-Vektor wird mittles der \nvortrainierten Übersetzungsmatrix nachgeschlagen.`}</HelpPopover
 						>
 					</div>
 					{#each $tokens as token, index}
+				
 						<div class="token-id flex items-center">
 							<div class="vocab-index ellipsis flex items-center text-right text-xs text-gray-400">
 								<div class="flex flex-col items-center">
@@ -172,7 +185,7 @@
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 31 9"
 										fill="none"
-										class="w-10 text-gray-300"
+										class="w-6 text-gray-300"
 									>
 										<path
 											fill="currentColor"
@@ -183,13 +196,20 @@
 							</div>
 							<div class="cell flex items-center">
 								<div class={`vector ${embeddingVectorColor}`}>
-									<VectorCanvas active />
+									<VectorCanvas active data={tokenEmbeddings[index]} 
+									colorScale={(d, i) => {
+										return d3
+											.scaleDiverging()
+											.domain([0, 0.5, 1])
+											.range([theme.colors['blue'][400], 'white', theme.colors['blue'][400]])(d);
+									}} />
 								</div>
+								<Tooltip placement="right" class="popover">Vektor({$modelMeta.dimension}, [{tokenEmbeddings[index].slice(0, 3).join(", ")}, ...])</Tooltip>
 								<span class="index-val text-xs">
 									{#if index === 0}
-										<span class="label">id</span><br />
+										<span class="label">ID</span><br />
 									{/if}
-									<span class="val">{(Math.random() * 10000).toFixed()}</span>
+									<span class="val">{tokenIds[index]}</span>
 								</span>
 							</div>
 						</div>
@@ -203,8 +223,8 @@
 				</div>
 				<div class="column embedding-detail position-embedding">
 					<div class="subtitle flex gap-1">
-						<span>Positional<br />Encoding</span><HelpPopover id="position-embedding"
-							>{`Encodes positional \ninformation of tokens into \nnumerical representations.`}</HelpPopover
+						<span>Positions-<br />Einbettung</span><HelpPopover id="position-embedding"
+							>{`Der passende Positions-Einbettungs-Vektor wird je Position \nebenfalls in der Positions-Übersetzungs-Matrix nachgeschlagen.`}</HelpPopover
 						>
 					</div>
 					{#each $tokens as token, index}
@@ -212,6 +232,7 @@
 							<div class={`vector ${embeddingVectorColor}`}>
 								<VectorCanvas
 									active
+									data={posEmbeddings[index]}
 									colorScale={(d, i) => {
 										return d3
 											.scaleDiverging()
@@ -220,16 +241,22 @@
 									}}
 								/>
 							</div>
+							<Tooltip placement="right" class="popover">Vektor({$modelMeta.dimension}, [{posEmbeddings[index].slice(0, 3).join(", ")}, ...])</Tooltip>
 							<span class="index-val text-xs">
 								{#if index === 0}
-									<span class="label">position</span><br />
+									<span class="label">Position</span><br />
 								{/if}
 								<span class="val">{index}</span>
 							</span>
 						</div>
 					{/each}
 				</div>
-				<div class="column symbol embedding-detail">
+				<div class="column symbol embedding-detail final-embedding">
+					<div class="subtitle flex items-center gap-1">
+					<span>Finale-<br />Einbettung</span><HelpPopover id="vector-embedding"
+						>{`Durch Addition jedes Elements des Token-Einbettungs-Vektors\nmit jedem Element des Positions-Einbettungs-Vektors\nentsteht je Token eine positionsbezogene, semantisch bedeutungsvolle\nVektor-Einbettung die die Eingabe in das neuronale Netz darstellt.`}</HelpPopover
+					>
+				</div>
 					{#each $tokens as token, index}
 						<div class="cell">=</div>
 					{/each}
@@ -241,9 +268,18 @@
 			<div class="column vectors">
 				{#each $tokens as token, index}
 					<div class={`vector ${embeddingVectorColor}`} class:last={index === $tokens.length - 1}>
-						<VectorCanvas active={isHovered || isEmbeddingExpanded} />
+						<VectorCanvas active={isHovered || isEmbeddingExpanded} 
+						data={finalInputEmbeddings[index]}
+						
+						colorScale={(d, i) => {
+							return d3
+								.scaleDiverging()
+								.domain([0, 0.5, 1])
+								.range([theme.colors['purple'][400], 'white', theme.colors['blue'][400]])(d);
+						}}
+						/>
 					</div>
-					<Tooltip placement="right" class="popover">vector({$modelMeta.dimension})</Tooltip>
+					<Tooltip placement="right" class="popover">Vektor({$modelMeta.dimension}, [{finalInputEmbeddings[index].slice(0, 3).join(", ")}, ...])</Tooltip>
 				{/each}
 			</div>
 			<div class="operations flex">
@@ -285,12 +321,12 @@
 		.content {
 			padding-left: 2rem;
 			display: grid;
-			grid-template-columns: auto repeat(4, minmax(var(--min-column-width), 1fr));
+			grid-template-columns: auto repeat(4, minmax(var(--min-column-width), 1.5fr));
 
 			.token-column {
 				// gap: 2rem;
 				.column {
-					padding: 0 1rem;
+					padding: 0 0.5rem;
 
 					.cell {
 						justify-content: flex-end;
@@ -342,12 +378,32 @@
 			}
 
 			.position-embedding {
+				width: 6rem;
 				.subtitle {
 					margin-left: -1rem;
 				}
 				.cell {
 					justify-content: center;
-					gap: 0.5rem;
+					gap: 1rem;
+				}
+				.index-val {
+					width: 2rem;
+					justify-content: start;
+				}
+				// &:hover {
+				// 	background-color: theme('colors.gray.100');
+				// }
+			}
+
+
+			.final-embedding {
+				width: 6rem;
+				.subtitle {
+					margin-left: -1rem;
+				}
+				.cell {
+					justify-content: center;
+					gap: 1rem;
 				}
 				.index-val {
 					width: 2rem;

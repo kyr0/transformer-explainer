@@ -32,8 +32,8 @@
 				</svg> -->
 
 				<div class="text" class:active={$isBoundingBoxActive}>
-					{$modelMeta.layer_num - 1} more identical<br /><span class="highlight"
-						>Transformer<br />Blocks</span
+					{$modelMeta.layer_num - 1} weitere identische<br /><span class="highlight"
+						>Transformer-<br />Blöcke</span
 					>.
 				</div>
 				<svg
@@ -57,7 +57,7 @@
 					>
 						<VectorCanvas colorScale="blue" />
 					</div>
-					<Tooltip placement="right" class="popover">vector({$modelMeta.dimension})</Tooltip>
+					<Tooltip placement="right" class="popover">Vektor({$modelMeta.dimension})</Tooltip>
 					<!-- {#if index === $tokens.length - 1}
 						<span class="label float">{token}</span>
 					{/if} -->

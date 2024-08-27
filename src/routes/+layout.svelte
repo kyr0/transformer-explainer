@@ -10,7 +10,7 @@
 	let topBarHeight = 0;
 
 	let minScreenWidth = 1300;
-	let minColumWidth = Math.floor(minScreenWidth / 24) - rootRem * 2;
+	let minColumWidth = Math.floor(minScreenWidth / 24) - rootRem * 2.5;
 
 	onMount(async () => {
 		isLoaded.set(true);
@@ -18,7 +18,7 @@
 </script>
 
 <svelte:head>
-	<title>Transformer Explainer</title>
+	<title>GPT einfach erklärt</title>
 </svelte:head>
 
 <div

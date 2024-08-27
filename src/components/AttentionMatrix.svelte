@@ -276,7 +276,7 @@
 				shape={'circle'}
 				colorScale={qkColorScale}
 			/>
-			<div class="matrix-label">Dot product</div>
+			<div class="matrix-label">Skalarprodukt</div>
 			<Tooltip class="popover tooltip">
 				<Katex math={'Q \\cdot K^T'}></Katex>
 			</Tooltip>
@@ -333,7 +333,7 @@
 					colorScale={maskedColorScale}
 				/>
 			</div>
-			<div class="matrix-label">Scaling · Mask</div>
+			<div class="matrix-label">Skalierung · Maske</div>
 			<Tooltip class="popover tooltip">
 				<Katex math={'\\frac{QK^T}{\\sqrt{d_k}} + M'}></Katex>
 			</Tooltip>
@@ -423,7 +423,7 @@
 				colorScale={softmaxColorScale}
 			/>
 
-			<div class="matrix-label">Attention</div>
+			<div class="matrix-label">Aufmerksamkeitsmatrix 🔍</div>
 		</div>
 	</div>
 </div>

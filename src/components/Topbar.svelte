@@ -7,9 +7,14 @@
 </script>
 
 <svelte:window bind:scrollY />
-<div class="top-bar flex w-full items-center gap-4 px-10 py-2 pb-3">
-	<div class="logo text-bold text-gray-700">
-		T<span class="small">RANSFORMER</span> E<span class="small">XPLAINER</span>
+<div class="top-bar flex w-full items-center gap-4 px-10 py-4 pb-3">
+	<div class="!-mt-3">
+		<span class="logo text-bold text-gray-700">
+			G<span class="small">PT</span> E<span class="small">INFACH</span> E<span class="small">RKLÄRT</span>
+		</span>
+		<div class="p-0 !-mt-4 text-xs">
+		übersetzt & erweitert von <a class="underline" href="https://www.linkedin.com/in/aronhomberg/" target="_blank">Aron Homberg</a>
+		</div>
 	</div>
 	<div class="inputs flex grow items-center">
 		<div class="input-wrapper w-full" class:active={scrollY < 100}>

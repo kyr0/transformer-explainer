@@ -256,13 +256,13 @@ class GPT(nn.Module):
             logits = self.lm_head(x[:, [-1], :]) # note: using list [-1] to preserve the time dim
             loss = None
   
-        # self.dictionary["embedding"] = {
-        #     "tok_emb": tok_emb,
-        #     "transformer.wpe.weight": self.transformer.wpe.weight,
-        #     "pos_emb": pos_emb,
-        #     "input_emb": input_emb,
-        #     "input_emb_dropout": input_emb_dropout
-        # }
+        self.dictionary["embedding"] = {
+             "tok_emb": tok_emb,
+             "transformer.wpe.weight": self.transformer.wpe.weight,
+             "pos_emb": pos_emb,
+             "input_emb": input_emb,
+             "input_emb_dropout": input_emb_dropout
+        }
 
         # self.dictionary["ln_f"] = self.transformer.ln_f.dict
         

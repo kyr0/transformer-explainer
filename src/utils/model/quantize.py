@@ -2,7 +2,7 @@ import onnx
 from onnxruntime.quantization import quantize_dynamic, QuantType
 
 # modelname="gpt2"
-modelname="gpt2-medium"
+modelname="gpt2"
 
 
 model_fp32 = "src/utils/model/params_output/"+ modelname +".onnx"
