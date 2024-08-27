@@ -18,8 +18,8 @@
 
 		<h1>Einleitung</h1>
 		<p>
-			Herzlich Willkommen zu meinem interaktiven Guide zum Thema "GPT einfach erklärt". Dieser Artikel
-			basiert ursprünglich auf dem "Transformer Explainer", der von 
+			Herzlich Willkommen zu meiner interaktiven Artikel: "GPT einfach erklärt". Diese Website 
+			basiert auf dem "Transformer Explainer", der ursprünglich von 
 			<a href="https://aereeeee.github.io/" target="_blank">Aeree Cho</a>,
 			<a href="https://www.linkedin.com/in/chaeyeonggracekim/" target="_blank">Grace C. Kim</a
 			>,
@@ -27,7 +27,7 @@
 			<a href="https://alechelbling.com/" target="_blank">Alec Helbling</a>,
 			<a href="https://zijie.wang/" target="_blank">Jay Wang</a>,
 			<a href="https://seongmin.xyz/" target="_blank">Seongmin Lee</a>,
-			<a href="https://bhoov.com/" target="_blank">Benjamin Hoover</a>, and
+			<a href="https://bhoov.com/" target="_blank">Benjamin Hoover</a>, und 
 			<a href="https://poloclub.github.io/polochau/" target="_blank">Polo Chau</a>
 			am Georgia Institute of Technology entwickelt wurde. 
 		</p>
