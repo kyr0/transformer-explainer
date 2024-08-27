@@ -165,7 +165,7 @@
 
 		<ol>
 			<li>
-				<strong>Tokenisierungs-Modell laden: Das vortrainierte Tokenisierungs-Modell und dessen Konfiguration wird in den Speicher geladen. Der GPT-2 Tokenizer dieses Modells ist 1.36 MB groß, die Konfiguration lediglich 26 Bytes.</strong>
+				<strong>Tokenisierungs-Modell laden:</strong> Das vortrainierte Tokenisierungs-Modell und dessen Konfiguration wird in den Speicher geladen. Der GPT-2 Tokenizer dieses Modells ist 1.36 MB groß, die Konfiguration lediglich 26 Bytes.
 			</li>
 
 			<li>
@@ -174,7 +174,7 @@
 			</li>
 
 			<li>
-				<strong>GPT-Modell laden: Das vortrainierte GPT-Modell wird in den Speicher geladen. Im Falle des hier im Browser ausgeführten Modells sind das 167 MB.</strong>
+				<strong>GPT-Modell laden:</strong> Das vortrainierte GPT-Modell wird in den Speicher geladen. Im Falle des hier im Browser ausgeführten Modells sind das 167 MB.
 			</li>
 
 			<li>
@@ -232,7 +232,7 @@
 		<h2>Was sind Vektordatenbanken?</h2>
 
 		<p>
-			Ein weiterer wichtiger Aspekt bei der Anwendung von GPT-Modellen ist die Verwendung von Vektordatenbanken. Diese speichern Daten nicht direkt,
+			Ein wichtiger Aspekt bei der Anwendung von GPT-Modellen ist die Verwendung von Vektordatenbanken. Diese speichern Daten nicht direkt,
 			sonern wandeln sie mit hilfe eines Vektor-Einbettungsmodells zunächst in Vektor-Einbettungen um. Diese können nach der Speicherung 
 			mit Hilfe spezieller Suchalgorithmen effizient durchsucht werden. Dabei ist der Hauptunterschied zu klassischen Datenbanken, dass die
 			Suche nicht auf exakten Übereinstimmungen basiert, sondern auf der semantischen Ähnlichkeit der Vektoren. Es kann also beispielsweise
