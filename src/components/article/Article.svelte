@@ -159,10 +159,22 @@
 			Autoregerationsschritt, also die Inferenz zur Bestimmung des nächsten Wortes im Satz, ausgeführt.
 		</p>
 
+		<p>
+			Die folgenden Arbeitsschritte werden der Reihe nach ausgeführt:
+		</p>
+
 		<ol>
+			<li>
+				<strong>Tokenisierungs-Modell laden: Das vortrainierte Tokenisierungs-Modell und dessen Konfiguration wird in den Speicher geladen. Der GPT-2 Tokenizer dieses Modells ist 1.36 MB groß, die Konfiguration lediglich 26 Bytes.</strong>
+			</li>
+
 			<li>
 				<strong>Tokenisierung:</strong>
 				Der Eingabetext wird durch den Tokenizer in Tokens aufgetrennt. Mehr dazu im Abschnitt "Wie funktioniert ein Tokenizer?".
+			</li>
+
+			<li>
+				<strong>GPT-Modell laden: Das vortrainierte GPT-Modell wird in den Speicher geladen. Im Falle des hier im Browser ausgeführten Modells sind das 167 MB.</strong>
 			</li>
 
 			<li>
@@ -318,7 +330,7 @@
 		<p>	
 			Im Ergebnis findet man im Vokabular eines BPE-basierten Tokenizers sehr viele Wörter die im Trainingstext vorkommen, aber auch Teilwörter mit hoher Frequenz. Dies ermöglicht es, dass der Tokenizer auch Worte verarbeiten kann, die zuvor nicht im Training vorkamen ("Out-of-Vocabulary", OOV), indem er sie in bekannte Teilworte oder Zeichenketten zerlegt.
 			Da sich diese von bekannten Vokabeln unterscheiden lassen sollten, kommen je nach BPE-Implementation Prefixe im Vokabular vor. Das hier verwendete GPT-2 Tokenizer Vokabular kann 
-			<a href="https://huggingface.co/openai-community/gpt2/raw/main/tokenizer.json" target="_blank">hier</a> abgerufen werden. 
+			<a href="https://huggingface.co/openai-community/gpt2/tree/main" target="_blank">hier als tokenizer.json-Datei</a> abgerufen werden. 
 			Suchen Sie in dieser JSON-Datei doch einmal nach dem Wort <code>"Hello"</code>. Speziell für GPT-2 wurde BPE übrigens weiter angepasst, um ineffiziente Tokenisierungen zu verhindern, was die Modellflexibilität und Effizienz verbessert. 
 			So wurde verhindert, dass BPE Zeichen unterschiedlicher Kategorien zusammenführt, mit Ausnahme von Leerzeichen, was die Kompressionseffizienz signifikant verbessert, ohne Wörter unnötig in viele Token zu zerlegen. <a href="https://d4mucfpksywv.cloudfront.net/better-language-models/language-models.pdf" target="_blank">Quelle: "Language Models are Unsupervised Multitask Learners", OpenAI</a>
 		</p>
