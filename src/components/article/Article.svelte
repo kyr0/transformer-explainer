@@ -796,7 +796,7 @@
 			<iframe src="https://atlas.nomic.ai/map/nomic-text-embed-v1-5m-sample" width="100%" height="500px" frameborder="0"></iframe>
 		</div>
 		<div class="figure-caption">
-			Abb. <span class="attention">8</span>: Trainingsdaten des Vektor-Embedding-Modells <a href="https://atlas.nomic.ai/map/nomic-text-embed-v1-5m-sample" target="_blank">Nomic Embed Text V1</a>, projiziert in Bezug auf semantische Ähnlichkeit
+			Abb. <span class="attention">8</span>: Trainingsdaten des Vektor-Embedding-Modells <a href="https://huggingface.co/nomic-ai/nomic-embed-text-v1" target="_blank">Nomic Embed Text V1</a>, projiziert in Bezug auf semantische Ähnlichkeit
 		</div>
 
 		<p>
