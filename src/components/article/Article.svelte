@@ -34,7 +34,7 @@
 		<p>
 			Da ich im deutschsprachigen Raum immerzu gefragt werde, wie ein Sprachmodell eigentlich funktioniert, habe ich mich entschieden,
 			diese fantastische Arbeit ins Deutsche zu übersetzen. Dabei kam auch das von mir entwickelte Open Source KI-Tool RedakTool.ai zum Einsatz.
-			Größtenteils habe ich aber natürlich meine eigenen Gedanken Form gegeben, da Sprachmodelle nicht deduktiv denken, und somit auch nicht wirklich intelligent arbeiten können (dazu später im Detail mehr).
+			Größtenteils habe ich aber natürlich meinen eigenen Gedanken Form gegeben, da Sprachmodelle nicht deduktiv denken, und somit auch nicht wirklich intelligent arbeiten können (dazu später im Detail mehr).
 		</p>	
 		<p>
 			Beim Verfassen dieses Artikels war es mir ferner ein großes Anliegen, den Text auch stark zu erweitern um ihn in seiner Verständlichkeit zu verbessern.
@@ -58,7 +58,7 @@
 		<h1>Was ist ein Transformer?</h1>
 		
 		<p>
-			Wenn die Rede von "Transformern" ist und insbesondere, wenn über "GPTs" gesprochen wird, wird spricht man von Transformer-basierten, große Sprachmodellen. Diese fallen in die Kategorie des Maschinelles Lernens (Machine Learning; ML) und insbesondere unter den Begriff "Neuronale Netze". 
+			Wenn die Rede von "Transformern" ist und insbesondere, wenn über "GPTs" gesprochen wird, spricht man von Transformer-basierten, große Sprachmodellen. Diese fallen in die Kategorie des Maschinelles Lernens (Machine Learning; ML) und insbesondere unter den Begriff "Neuronale Netze". 
 			Der Begriff "Transformer-Architektur", welcher in diesem Zusammenhang oft genannt wird, bezieht sich dabei nur auf die Art und Weise des Aufbaus, also der spezifischen Konstruktion eines bestimmten neuronalen Netzes. 
 			Dabei geht es um die mathematischen Grundlagen der Netz-Architektur die den Lernprozess (Training) und die Anwendung (Inference) des Modells bestimmen.
 		</p>
@@ -788,15 +788,15 @@
 			Die naheliegendste und effizienteste mathematische Darstellungsform für dieses Problem sind, wie bereits dargelegt wurde, hochdimensionale Vektoren.
 			Durch diese hochdimensionalen Vektoren können Wörter, die semantisch ähnlich sind, in der Nähe zueinander im Vektorraum positioniert werden, 
 			was dem Modell hilft, Bedeutungen und Beziehungen zwischen Wörtern zu erfassen und zu verarbeiten. 
-			Projiziert man die Vektoren aus dem hochdimensionalen Raum zurück in eine farb-kodierte 2D- oder 3D-Matrix, ergeben sich „Wolken“, 
-			in denen z.B. das Vokabular verschiedener Sprachen nah beieinander liegt.
+			Projiziert man die Vektoren aus dem hochdimensionalen Raum zurück in eine farb-kodierte 2D-Darstellung, ergeben sich „Wolken“,
+			die semantische Beziehungen abbilden.
 		</p>
 
 		<div class="figure">
-			<img src="./article_assets/nomic_graph.webp" width="90%" align="middle" />
+			<iframe src="https://atlas.nomic.ai/map/nomic-text-embed-v1-5m-sample" width="100%" height="500px" frameborder="0"></iframe>
 		</div>
 		<div class="figure-caption">
-			Abb. <span class="attention">8</span>: Nomic Text Embed V1 - projizierte grafische Darstellung der Vektordaten im niedrig-dimensionalen Raum
+			Abb. <span class="attention">8</span>: Trainingsdaten des Vektor-Embedding-Modells <a href="https://atlas.nomic.ai/map/nomic-text-embed-v1-5m-sample" target="_blank">Nomic Embed Text V1</a>, projiziert in Bezug auf semantische Ähnlichkeit
 		</div>
 
 		<p>
@@ -1374,7 +1374,9 @@
 				</p>
 				
 				<p>
-					Bei der ersten Transformation wird die Dimensionalität der Eingabedaten vervierfacht, also von <code>768</code> auf <code>3072</code>. Anschließend reduziert die zweite Transformation die Dimensionalität wieder auf die ursprüngliche Größe von <code>768</code>, damit die nächsten Schichten im Modell weiterhin mit Daten in der gleichen Dimension arbeiten können. 
+					Bei der ersten Transformation wird die Dimensionalität der Eingabedaten vervierfacht, also von <code>768</code> auf <code>3072</code> erhöht. 
+					
+					Anschließend reduziert die zweite Transformation die Dimensionalität wieder auf die ursprüngliche Größe von <code>768</code>, damit die nächsten Schichten im Modell weiterhin mit Daten in der selben Dimensionalität arbeiten können. 
 				</p>
 				
 				<p>
