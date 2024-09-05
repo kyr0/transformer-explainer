@@ -39,9 +39,9 @@
 		<p>
 			Beim Verfassen dieses Artikels war es mir ferner ein großes Anliegen, den Text auch stark zu erweitern um ihn in seiner Verständlichkeit zu verbessern.
 			Ich bin der Meinung, dass ein Verständnis der Konzepte hinter GPTs für alle Menschen, unabhängig von Herkunft, Alter und Bildungsgrad erreichbar und frei zugänglich sein sollte.
-			Diese Technologie hat bereits ein viel zu großes Potential gezeigt und brirgt viel zu große Risiken, als dass man ihr Verständnis 
+			Diese Technologie hat bereits ein viel zu großes Potenzial gezeigt und birgt viel zu große Risiken, als dass man ihr Verständnis 
 			nur einer kleinen Gruppe von Experten überlassen sollte. In einer perfekten Welt würde die Funktionsweise von GPTs vielleicht sogar in der Schule gelehrt werden.
-			Die ein oder andere Schüler*in könnte sich so dazu entscheiden, das Denken und ihre Kreativität vielleicht doch nicht der Statistik und dem Zufall zu überlassen.
+			Die ein oder andere Schüler*in könnte sich so dazu entscheiden, das Denken und ihre Kreativität vielleicht doch nicht allein der Statistik und dem Zufall zu überlassen.
 		</p>
 		<p>
 			Für eine schnellere Ausführung und kleinere Download-Größe habe ich das ursprüngliche GPT-2-Modell außerdem quantisiert.
@@ -511,7 +511,7 @@
 			Wir haben gelernt, dass ein Tokenizer die Eingabe in eine Liste von Token-IDs und deren Positionen zerlegt.
 			Wir wissen auch bereits, dass beim Training des Modells für jede Token-ID eine Vektor-Repräsentation gelernt wurde, die die semantische Bedeutung des Tokens, 
 			also des Wortes, des Satzzeichens, Emojis etc. kodiert. Doch wie kommen wir nun an diese Vektoren heran, wenn wir das Modell anwenden, also Text generieren möchten, 
-			aber nur eine Token-ID haben? 
+			doch nur eine Token-ID kennen? 
 		</p>
 
 		<p>
